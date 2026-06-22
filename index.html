@@ -44,7 +44,8 @@
                         <path d="M19 8.5c-.7 0-1.35.23-1.89.61L14.47 6.5c-.34-.44-.86-.7-1.42-.7H6.5c-.5 0-.95.25-1.22.67l-2.4 3.63H1c-.55 0-1 .45-1 1s.45 1 1 1h.33l.63 1.9c.22.67.85 1.12 1.56 1.12h.2c.1-.83.8-1.5 1.65-1.5s1.55.67 1.65 1.5h6.2c.1-.83.8-1.5 1.65-1.5s1.55.67 1.65 1.5h2.13c.7 0 1.3-.45 1.52-1.12l1.1-3.3c.1-.3.05-.63-.13-.88-.28-.37-.73-.62-1.22-.62h-1.27c-.24-1.23-1.32-2.17-2.63-2.17zm-13.87 2l1.65-2.5h5.19l1.65 2.5H5.13zM5.37 14.5c-.48 0-.87.39-.87.87s.39.88.87.88.88-.39.88-.88-.39-.87-.88-.87zm11.5 0c-.48 0-.87.39-.87.87s.39.88.87.88.88-.39.88-.88-.39-.87-.88-.87z"/>
                         <path d="M1 5h3v1H1zM0 8h2v1H0zM2 3h2v1H2z"/>
                     </svg>
-                    <span data-i18n="nav_sos">SOS Towing</span>
+                    <!-- кнопка прив'язки виклику SOS до часу доби -->
+                    <span id="desktop-sos-text"></span>
                 </a>
                 <!-- Book Appointment BUTTON -->
                 <a href="index.html#booking" data-i18n="btn_book" class="inline-flex items-center bg-cyan-50/90 hover:bg-white text-[#313b47] font-semibold transition duration-300 shadow-md shadow-cyan-900/40 px-6 py-3 rounded-xl">
@@ -79,7 +80,8 @@
                     <path d="M19 8.5c-.7 0-1.35.23-1.89.61L14.47 6.5c-.34-.44-.86-.7-1.42-.7H6.5c-.5 0-.95.25-1.22.67l-2.4 3.63H1c-.55 0-1 .45-1 1s.45 1 1 1h.33l.63 1.9c.22.67.85 1.12 1.56 1.12h.2c.1-.83.8-1.5 1.65-1.5s1.55.67 1.65 1.5h6.2c.1-.83.8-1.5 1.65-1.5s1.55.67 1.65 1.5h2.13c.7 0 1.3-.45 1.52-1.12l1.1-3.3c.1-.3.05-.63-.13-.88-.28-.37-.73-.62-1.22-.62h-1.27c-.24-1.23-1.32-2.17-2.63-2.17zm-13.87 2l1.65-2.5h5.19l1.65 2.5H5.13zM5.37 14.5c-.48 0-.87.39-.87.87s.39.88.87.88.88-.39.88-.88-.39-.87-.88-.87zm11.5 0c-.48 0-.87.39-.87.87s.39.88.87.88.88-.39.88-.88-.39-.87-.88-.87z"/>
                     <path d="M1 5h3v1H1zM0 8h2v1H0zM2 3h2v1H2z"/>
                 </svg>
-                <span data-i18n="nav_sos">SOS Towing</span>
+                <!-- кнопка прив'язки виклику SOS до часу доби -->
+                <span id="mobile-sos-text"></span>
             </a>
 
             <a href="index.html#booking" data-i18n="btn_book" class="text-center bg-cyan-50/90 hover:bg-white text-[#313b47] font-semibold transition duration-300 shadow-md shadow-cyan-900/40 px-6 py-3 rounded-xl">
@@ -196,7 +198,8 @@
                 <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-2xl">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-slate-900 text-2xl font-bold">Cecauto AutoClinic Pro</h2>
-                        <span data-i18n="card_status" class="px-3 py-1 rounded-full bg-green-500/15 text-green-600 text-sm font-medium">Open</span>
+                         <!-- оновлення статусу кнопки Open (яка світиться зеленим кольором) -->
+                        <span id="clinic-status"></span>
                     </div>
 
                     <div class="space-y-5">
@@ -243,7 +246,8 @@ const translations = {
     en: {
         nav_services: "Services", nav_about: "About", nav_booking: "Booking", nav_contact: "Contact",
         btn_book: "Book Appointment",
-        nav_sos: "Breakdown on Road? Call Towing & Repair",
+        sos_open: "Breakdown? Call Towing & Repair",
+        sos_closed: "Closed Now. Emergency Towing",
         hero_badge: "Professional Auto Repair & Diagnostics",
         hero_title_1: "Premium Care", hero_title_2: "For Your Vehicle",
         hero_desc: "Professional diagnostics, maintenance and repair services. Fast booking, transparent communication and expert technicians.",
@@ -258,7 +262,8 @@ const translations = {
     es: {
         nav_services: "Servicios", nav_about: "Nosotros", nav_booking: "Reserva", nav_contact: "Contacto",
         btn_book: "Reservar Cita",
-        nav_sos: "¿Avería en carretera? Llamar Grúa / Mecánico",
+        sos_open: "¿Avería? Llamar Grúa o Mecánico",
+        sos_closed: "Cerrado. Grúa de Emergencia",
         hero_badge: "Diagnóstico y Reparación Profesional de Autos",
         hero_title_1: "Cuidado Premium", hero_title_2: "Para Su Vehículo",
         hero_desc: "Servicios profesionales de diagnóstico, mantenimiento y reparación. Reserva rápida, comunicación transparente y técnicos expertos.",
@@ -273,7 +278,8 @@ const translations = {
     uk: {
         nav_services: "Послуги", nav_about: "Про нас", nav_booking: "Запис", nav_contact: "Контакти",
         btn_book: "Записатись на візит",
-        nav_sos: "Поломка в дорозі? Виклик евакуатора/майстра",
+        sos_open: "Поломка в дорозі? Виклик евакуатора",
+        sos_closed: "Зараз зачинено. Екстрений виклик",
         hero_badge: "Професійний ремонт та діагностика авто",
         hero_title_1: "Преміальний догляд", hero_title_2: "За вашим авто",
         hero_desc: "Професійна діагностика, технічне обслуговування та ремонт. Швидкий запис, прозора комунікація та досвідчені майстри.",
@@ -286,6 +292,61 @@ const translations = {
         card_hours_title: "Графік роботи", day_mon_thu: "Пн - Чт:", day_fri: "Пт:", day_sat_sun: "Сб - Нд:", status_closed: "Зачинено"
     }
 };
+
+// 1.5 ФУНКЦІЯ ПЕРЕВІРКИ ЧАСУ (ТАЙМЗОНА БАРСЕЛОНИ)
+function updateClinicStatus() {
+    const statusElement = document.getElementById('clinic-status');
+    const desktopSos = document.getElementById('desktop-sos-text');
+    const mobileSos = document.getElementById('mobile-sos-text');
+    
+    // Отримуємо поточну активну мову
+    const currentLang = localStorage.getItem('selectedLanguage') || 'es';
+
+    // Отримуємо точний час в Іспанії (Мадрид/Барселона)
+    const spainTimeStr = new Date().toLocaleString("en-US", { timeZone: "Europe/Madrid" });
+    const spainDate = new Date(spainTimeStr);
+
+    const day = spainDate.getDay(); // 0 = Неділя, 1 = Пн, ..., 5 = Пт, 6 = Сб
+    const hours = spainDate.getHours();
+    const minutes = spainDate.getMinutes();
+    const currentTimeInMinutes = hours * 60 + minutes;
+
+    let isOpen = false;
+
+    // Графік: Пн - Чт (1, 2, 3, 4) -> 09:00-14:00 та 15:00-18:30
+    if (day >= 1 && day <= 4) {
+        if ((currentTimeInMinutes >= 9 * 60 && currentTimeInMinutes < 14 * 60) ||
+            (currentTimeInMinutes >= 15 * 60 && currentTimeInMinutes < 18 * 60 + 30)) {
+            isOpen = true;
+        }
+    }
+    // Графік: Пт (5) -> 09:00-14:00 та 15:00-17:00
+    else if (day === 5) {
+        if ((currentTimeInMinutes >= 9 * 60 && currentTimeInMinutes < 14 * 60) ||
+            (currentTimeInMinutes >= 15 * 60 && currentTimeInMinutes < 17 * 60)) {
+            isOpen = true;
+        }
+    }
+
+    // Беремо відповідний текст зі словника перекладів
+    const langTrans = translations[currentLang] || translations['es'];
+
+    // --- ОНОВЛЕННЯ ІНФОРМАЦІЙНОГО БЛОКУ (БЕЙДЖА) ---
+    if (statusElement) {
+        if (isOpen) {
+            statusElement.textContent = langTrans.card_status; 
+            statusElement.className = "px-3 py-1 rounded-full bg-green-500/15 text-green-600 text-sm font-medium";
+        } else {
+            statusElement.textContent = langTrans.status_closed; 
+            statusElement.className = "px-3 py-1 rounded-full bg-red-500/15 text-red-600 text-sm font-medium";
+        }
+    }
+
+    // --- ОНОВЛЕННЯ SOS-КНОПОК В ХЕДЕРІ ---
+    const sosText = isOpen ? langTrans.sos_open : langTrans.sos_closed;
+    if (desktopSos) desktopSos.textContent = sosText;
+    if (mobileSos) mobileSos.textContent = sosText;
+}
 
 // 2. ФУНКЦІЯ ПЕРЕМИКАННЯ МОВИ
 function changeLanguage(lang) {
@@ -310,10 +371,12 @@ function changeLanguage(lang) {
         activeMobBtn.classList.remove('text-cyan-50/90');
         activeMobBtn.classList.add('text-cyan-400', 'font-bold');
     }
+
+    // Викликаємо оновлення динамічних статусів після зміни мови
+    updateClinicStatus();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Ініціалізація іспанської мови за замовчуванням
     const savedLang = localStorage.getItem('selectedLanguage') || 'es';
     changeLanguage(savedLang);
 
@@ -352,9 +415,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. НОВЕ: КЕРУВАННЯ СТРІЛКАМИ КЛАВІАТУРИ (← / →)
+    // 5. КЕРУВАННЯ СТРІЛКАМИ КЛАВІАТУРИ (← / →)
     document.addEventListener('keydown', (e) => {
-        // Якщо користувач раптом щось пише в полі вводу (на майбутнє), не перемикаємо слайди
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
         const index = Math.round(slider.scrollLeft / slider.offsetWidth);
