@@ -6,10 +6,22 @@
     <title>Cecauto AutoClinic Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Приховуємо стандартний скроллбар для слайдера фото */
-        .scrollbar-none::-webkit-scrollbar { display: none; }
-        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Заборона автоматичного збільшення тексту на мобільних пристроях */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        /* Приховування скролбару для слайдера */
+        .scrollbar-none {
+            -ms-overflow-style: none; /* старий Edge */
+            scrollbar-width: none;    /* Firefox */
+        }
+        /* Chrome, Safari, Opera */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
     </style>
+    <link rel="icon" href="image/logo.png">
 </head>
 <!-- в BODY bg-slate-50 відповідає за колір основного тла -->
 <body class="bg-slate-50 font-sans antialiased">
@@ -25,11 +37,11 @@
                 <nav class="flex items-center gap-8">
                     <a href="index.html#services" data-i18n="nav_services" class="text-cyan-50/90 hover:text-cyan-300 transition duration-300">Services</a>
                     <a href="index.html#about" data-i18n="nav_about" class="text-cyan-50/90 hover:text-cyan-300 transition duration-300">About</a>
-                    <a href="index.html#booking" data-i18n="nav_booking" class="text-cyan-50/90 hover:text-cyan-300 transition duration-300">Booking</a>
+                    <a href="booking.html" data-i18n="nav_booking" class="text-cyan-50/90 hover:text-cyan-300 transition duration-300">Booking</a>
                     <a href="contact.html" data-i18n="nav_contact" class="text-cyan-50/90 hover:text-cyan-300 transition duration-300">Contact</a>
                 </nav>
                 <div class="relative inline-block text-left border-l border-white/20 pl-6">
-                    <select id="lang-select" class="bg-[#313b47] text-cyan-50/90 border border-cyan-700/50 rounded-lg px-2 py-1 text-sm focus:outline-none focus:border-cyan-400 cursor-pointer font-medium">
+                    <select id="lang-select" aria-label="Language selection" class="bg-[#313b47] text-cyan-50/90 border border-cyan-700/50 rounded-lg px-2 py-1 text-sm focus:outline-none focus:border-cyan-400 cursor-pointer font-medium">
                         <option value="en">EN</option>
                         <option value="es">ES</option>
                         <option value="uk">UK</option>
@@ -48,7 +60,7 @@
                     <span id="desktop-sos-text"></span>
                 </a>
                 <!-- Book Appointment BUTTON -->
-                <a href="index.html#booking" data-i18n="btn_book" class="inline-flex items-center bg-cyan-50/90 hover:bg-white text-[#313b47] font-semibold transition duration-300 shadow-md shadow-cyan-900/40 px-6 py-3 rounded-xl">
+                <a href="booking.html" data-i18n="btn_book" class="inline-flex items-center bg-cyan-50/90 hover:bg-white text-[#313b47] font-semibold transition duration-300 shadow-md shadow-cyan-900/40 px-6 py-3 rounded-xl">
                     Book Appointment
                 </a>
             </div>
@@ -65,7 +77,7 @@
         <div class="px-6 py-6 flex flex-col gap-5">
             <a href="index.html#services" data-i18n="nav_services" class="text-cyan-50/90 hover:text-cyan-300 transition">Services</a>
             <a href="index.html#about" data-i18n="nav_about" class="text-cyan-50/90 hover:text-cyan-300 transition">About</a>
-            <a href="index.html#booking" data-i18n="nav_booking" class="text-cyan-50/90 hover:text-cyan-300 transition">Booking</a>
+            <a href="booking.html" data-i18n="nav_booking" class="text-cyan-50/90 hover:text-cyan-300 transition">Booking</a>
             <a href="contact.html" data-i18n="nav_contact" class="text-cyan-50/90 hover:text-cyan-300 transition">Contact</a>
             
             <div class="flex gap-4 border-t border-white/10 pt-4">
@@ -84,7 +96,7 @@
                 <span id="mobile-sos-text"></span>
             </a>
 
-            <a href="index.html#booking" data-i18n="btn_book" class="text-center bg-cyan-50/90 hover:bg-white text-[#313b47] font-semibold transition duration-300 shadow-md shadow-cyan-900/40 px-6 py-3 rounded-xl">
+            <a href="booking.html" data-i18n="btn_book" class="text-center bg-cyan-50/90 hover:bg-white text-[#313b47] font-semibold transition duration-300 shadow-md shadow-cyan-900/40 px-6 py-3 rounded-xl">
                 Book Appointment
             </a>
         </div>
@@ -126,7 +138,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mt-10">
-                    <a href="#booking" data-i18n="btn_book" class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#313b47] to-cyan-800 hover:from-cyan-800 hover:to-[#313b47] text-white font-semibold text-center transition duration-300 shadow-lg shadow-cyan-900/30">
+                    <a href="booking.html" data-i18n="btn_book" class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#313b47] to-cyan-800 hover:from-cyan-800 hover:to-[#313b47] text-white font-semibold text-center transition duration-300 shadow-lg shadow-cyan-900/30">
                         Book Appointment
                     </a>
                     <a href="tel:+34668575113" class="px-8 py-4 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 hover:text-emerald-800 font-semibold transition duration-300 flex items-center justify-center gap-2.5">
@@ -189,9 +201,9 @@
                     </div>
                     <!-- кнопки для слайд-бару -->
                     <div class="absolute top-5 right-5 flex gap-1.5 z-10 bg-slate-950/40 backdrop-blur-sm px-2.5 py-1.5 rounded-full border border-white/10">
-                        <button onclick="scrollToSlide(0)" class="slider-dot w-4 h-2 rounded-full bg-cyan-400 transition-all duration-300"></button>
-                        <button onclick="scrollToSlide(1)" class="slider-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300"></button>
-                        <button onclick="scrollToSlide(2)" class="slider-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300"></button>
+                        <button aria-label="Go to slide 1" onclick="scrollToSlide(0)" class="slider-dot w-4 h-2 rounded-full bg-cyan-400 transition-all duration-300"></button>
+                        <button aria-label="Go to slide 2" onclick="scrollToSlide(1)" class="slider-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300"></button>
+                        <button aria-label="Go to slide 3" onclick="scrollToSlide(2)" class="slider-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300"></button>
                     </div>
                 </div>
 
@@ -239,200 +251,8 @@
         </div>
     </div>
 </section>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
 
-<script>
-// 1. СЛОВНИК ПЕРЕКЛАДІВ
-const translations = {
-    en: {
-        nav_services: "Services", nav_about: "About", nav_booking: "Booking", nav_contact: "Contact",
-        btn_book: "Book Appointment",
-        sos_open: "Breakdown? Call Towing & Repair",
-        sos_closed: "Closed Now. Emergency Towing",
-        hero_badge: "Professional Auto Repair & Diagnostics",
-        hero_title_1: "Premium Care", hero_title_2: "For Your Vehicle",
-        hero_desc: "Professional diagnostics, maintenance and repair services. Fast booking, transparent communication and expert technicians.",
-        badge_google: "Google Rating in Barcelona",
-        badge_parts_title: "Official Parts", badge_parts_desc: "Certified Cecauto quality",
-        badge_speed_title: "Same-Day", badge_speed_desc: "Diagnostics & quick repair",
-        slide1_title: "Computer Diagnostics & Repair", slide2_title: "Expert Certified Technicians", slide3_title: "Advanced Garage Equipment",
-        card_status: "Open", card_address_title: "Address", card_city: "Barcelona, Spain",
-        card_phone_title: "Phone", card_location_title: "Location", card_location_value: "Montcada i Reixac",
-        card_hours_title: "Working Hours", day_mon_thu: "Mon - Thu:", day_fri: "Fri:", day_sat_sun: "Sat - Sun:", status_closed: "Closed"
-    },
-    es: {
-        nav_services: "Servicios", nav_about: "Nosotros", nav_booking: "Reserva", nav_contact: "Contacto",
-        btn_book: "Reservar Cita",
-        sos_open: "¿Avería? Llamar Grúa o Mecánico",
-        sos_closed: "Cerrado. Grúa de Emergencia",
-        hero_badge: "Diagnóstico y Reparación Profesional de Autos",
-        hero_title_1: "Cuidado Premium", hero_title_2: "Para Su Vehículo",
-        hero_desc: "Servicios profesionales de diagnóstico, mantenimiento y reparación. Reserva rápida, comunicación transparente y técnicos expertos.",
-        badge_google: "Calificación de Google en Barcelona",
-        badge_parts_title: "Piezas Oficiales", badge_parts_desc: "Calidad certificada Cecauto",
-        badge_speed_title: "Mismo Día", badge_speed_desc: "Diagnóstico y reparación rápida",
-        slide1_title: "Diagnóstico por Computadora", slide2_title: "Técnicos Expertos Certificados", slide3_title: "Equipo de Taller Avanzado",
-        card_status: "Abierto", card_address_title: "Dirección", card_city: "Barcelona, España",
-        card_phone_title: "Teléfono", card_location_title: "Ubicación", card_location_value: "Montcada i Reixac",
-        card_hours_title: "Horario de Trabajo", day_mon_thu: "Lun - Jue:", day_fri: "Vie:", day_sat_sun: "Sáb - Dom:", status_closed: "Cerrado"
-    },
-    uk: {
-        nav_services: "Послуги", nav_about: "Про нас", nav_booking: "Запис", nav_contact: "Контакти",
-        btn_book: "Записатись на візит",
-        sos_open: "Поломка в дорозі? Виклик евакуатора / майстра",
-        sos_closed: "Зараз зачинено. Екстрений виклик",
-        hero_badge: "Професійний ремонт та діагностика авто",
-        hero_title_1: "Преміальний догляд", hero_title_2: "За вашим авто",
-        hero_desc: "Професійна діагностика, технічне обслуговування та ремонт. Швидкий запис, прозора комунікація та досвідчені майстри.",
-        badge_google: "Рейтинг Google у Барселоні",
-        badge_parts_title: "Оригінальні деталі", badge_parts_desc: "Сертифікована якість Cecauto",
-        badge_speed_title: "День у день", badge_speed_desc: "Діагностика та швидкий ремонт",
-        slide1_title: "Комп'ютерна діагностика та ремонт", slide2_title: "Сертифіковані експерти", slide3_title: "Сучасне обладнання боксів",
-        card_status: "Відчинено", card_address_title: "Адреса", card_city: "Барселона, Іспанія",
-        card_phone_title: "Телефон", card_location_title: "Локація", card_location_value: "Монкада-і-Решак",
-        card_hours_title: "Графік роботи", day_mon_thu: "Пн - Чт:", day_fri: "Пт:", day_sat_sun: "Сб - Нд:", status_closed: "Зачинено"
-    }
-};
-
-// 1.5 ФУНКЦІЯ ПЕРЕВІРКИ ЧАСУ (ТАЙМЗОНА БАРСЕЛОНИ)
-function updateClinicStatus() {
-    const statusElement = document.getElementById('clinic-status');
-    const desktopSos = document.getElementById('desktop-sos-text');
-    const mobileSos = document.getElementById('mobile-sos-text');
-    
-    // Отримуємо поточну активну мову
-    const currentLang = localStorage.getItem('selectedLanguage') || 'es';
-
-    // Отримуємо точний час в Іспанії (Мадрид/Барселона)
-    const spainTimeStr = new Date().toLocaleString("en-US", { timeZone: "Europe/Madrid" });
-    const spainDate = new Date(spainTimeStr);
-
-    const day = spainDate.getDay(); // 0 = Неділя, 1 = Пн, ..., 5 = Пт, 6 = Сб
-    const hours = spainDate.getHours();
-    const minutes = spainDate.getMinutes();
-    const currentTimeInMinutes = hours * 60 + minutes;
-
-    let isOpen = false;
-
-    // Графік: Пн - Чт (1, 2, 3, 4) -> 09:00-14:00 та 15:00-18:30
-    if (day >= 1 && day <= 4) {
-        if ((currentTimeInMinutes >= 9 * 60 && currentTimeInMinutes < 14 * 60) ||
-            (currentTimeInMinutes >= 15 * 60 && currentTimeInMinutes < 18 * 60 + 30)) {
-            isOpen = true;
-        }
-    }
-    // Графік: Пт (5) -> 09:00-14:00 та 15:00-17:00
-    else if (day === 5) {
-        if ((currentTimeInMinutes >= 9 * 60 && currentTimeInMinutes < 14 * 60) ||
-            (currentTimeInMinutes >= 15 * 60 && currentTimeInMinutes < 17 * 60)) {
-            isOpen = true;
-        }
-    }
-
-    // Беремо відповідний текст зі словника перекладів
-    const langTrans = translations[currentLang] || translations['es'];
-
-    // --- ОНОВЛЕННЯ ІНФОРМАЦІЙНОГО БЛОКУ (БЕЙДЖА) ---
-    if (statusElement) {
-        if (isOpen) {
-            statusElement.textContent = langTrans.card_status; 
-            statusElement.className = "px-3 py-1 rounded-full bg-green-500/15 text-green-600 text-sm font-medium";
-        } else {
-            statusElement.textContent = langTrans.status_closed; 
-            statusElement.className = "px-3 py-1 rounded-full bg-red-500/15 text-red-600 text-sm font-medium";
-        }
-    }
-
-    // --- ОНОВЛЕННЯ SOS-КНОПОК В ХЕДЕРІ ---
-    const sosText = isOpen ? langTrans.sos_open : langTrans.sos_closed;
-    if (desktopSos) desktopSos.textContent = sosText;
-    if (mobileSos) mobileSos.textContent = sosText;
-}
-
-// 2. ФУНКЦІЯ ПЕРЕМИКАННЯ МОВИ
-function changeLanguage(lang) {
-    localStorage.setItem('selectedLanguage', lang);
-    
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-
-    const select = document.getElementById('lang-select');
-    if(select) select.value = lang;
-
-    document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-        btn.classList.remove('text-cyan-400', 'font-bold');
-        btn.classList.add('text-cyan-50/90');
-    });
-    const activeMobBtn = document.getElementById(`mob-lang-${lang}`);
-    if(activeMobBtn) {
-        activeMobBtn.classList.remove('text-cyan-50/90');
-        activeMobBtn.classList.add('text-cyan-400', 'font-bold');
-    }
-
-    // Викликаємо оновлення динамічних статусів після зміни мови
-    updateClinicStatus();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('selectedLanguage') || 'es';
-    changeLanguage(savedLang);
-
-    document.getElementById('lang-select').addEventListener('change', (e) => {
-        changeLanguage(e.target.value);
-    });
-
-    // 3. МОБІЛЬНЕ МЕНЮ
-    const menuButton = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    });
-
-    // 4. СИНХРОНІЗАЦІЯ КРАПОК СЛАЙДЕРА
-    const slider = document.getElementById('hero-slider');
-    const dots = document.querySelectorAll('.slider-dot');
-
-    slider.addEventListener('scroll', () => {
-        const index = Math.round(slider.scrollLeft / slider.offsetWidth);
-        dots.forEach((dot, i) => {
-            if(i === index) {
-                dot.classList.remove('bg-white/40', 'w-2');
-                dot.classList.add('bg-cyan-400', 'w-4'); 
-            } else {
-                dot.classList.remove('bg-cyan-400', 'w-4');
-                dot.classList.add('bg-white/40', 'w-2');
-            }
-        });
-    });
-
-    // 5. КЕРУВАННЯ СТРІЛКАМИ КЛАВІАТУРИ (← / →)
-    document.addEventListener('keydown', (e) => {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
-        const index = Math.round(slider.scrollLeft / slider.offsetWidth);
-        
-        if (e.key === 'ArrowRight') {
-            if (index < dots.length - 1) scrollToSlide(index + 1);
-        } else if (e.key === 'ArrowLeft') {
-            if (index > 0) scrollToSlide(index - 1);
-        }
-    });
-});
-
-function scrollToSlide(index) {
-    const slider = document.getElementById('hero-slider');
-    slider.scrollLeft = index * slider.offsetWidth;
-}
-</script>
 </body>
 </html>
