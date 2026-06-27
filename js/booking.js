@@ -41,30 +41,30 @@ document.getElementById('issue-desc').value;
 
 
 const message = 
-`Hola! Quiero reservar una cita desde la web.
+`Вітаю! Хочу записатися на обслуговування через сайт.
 
-Vehículo:
+Автомобіль:
 ${carModel}
 
-Matrícula:
+Номер автомобіля:
 ${plate}
 
-Servicio:
+Послуга:
 ${service}
 
-Fecha:
+Дата:
 ${date}
 
-Hora:
+Час:
 ${time}
 
-Cliente:
+Клієнт:
 ${name}
 
-Teléfono:
+Телефон:
 ${phone}
 
-Problema:
+Проблема:
 ${desc}`;
 
 
