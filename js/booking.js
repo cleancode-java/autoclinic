@@ -41,7 +41,7 @@ document.getElementById('issue-desc').value;
 
 
 const message = 
-`Вітаю! Хочу записатися на обслуговування через сайт.
+`Вітаю! Хочу записатися на обслуговування в Autoclinic через сайт.
 
 Автомобіль:
 ${carModel}
